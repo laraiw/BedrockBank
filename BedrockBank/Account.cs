@@ -30,6 +30,26 @@ namespace BedrockBank
 
         #region Methods
 
+        /// <summary>
+        /// Deposit money into your account
+        /// </summary>
+        /// <param name="amount">Menoey to deposit</param>
+        /// <returns>Returns new balance</returns>
+        public decimal Deposit(decimal amount)
+        {
+            Balance = Balance + amount;
+            
+            // or Balance += amount;
+            
+            return Balance;
+        }
+
+        public decimal Withdraw(decimal amount)
+        {
+            Balance -= amount;
+            // or Balance = Balance - amount;
+            return Balance;
+        }
         #endregion
     }
 }
