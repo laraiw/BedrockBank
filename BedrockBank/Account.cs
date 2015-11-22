@@ -33,7 +33,7 @@ namespace BedrockBank
         /// <summary>
         /// Deposit money into your account
         /// </summary>
-        /// <param name="amount">Menoey to deposit</param>
+        /// <param name="amount">Money to deposit</param>
         /// <returns>Returns new balance</returns>
         public decimal Deposit(decimal amount)
         {
