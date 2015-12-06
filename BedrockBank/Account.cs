@@ -11,21 +11,43 @@ namespace BedrockBank
     /// </summary>
     class Account
     {
+        #region Variables
+        /// <summary>
+        /// Shared memory for storing the last account; and initializing to 0
+        /// </summary>
+        private static int lastAccountNumber = 0;
+        #endregion
+
         #region Properties
         /// <summary>
         /// Name of the account holder
         /// </summary>
-        public string Name { get; set; }
+        public string Name {
+            get;            
+            set; }
 
         /// <summary>
         /// Account number
         /// </summary>
-        public int AccountNumber { get; set; }
+        public int AccountNumber { get;
+            private set; }
 
         /// <summary>
         /// Balance of the account
         /// </summary>
-        public decimal Balance { get; set; }
+        public decimal Balance { get;
+            private set; }
+        #endregion
+
+        #region Constructors
+
+        public Account()
+        {
+            AccountNumber = ++lastAccountNumber; //pre-increment
+         
+                //same as lastAccountNumber = lastAccountNumber + 1; but will give you 0, so increment by 1 first
+        }
+
         #endregion
 
         #region Methods
@@ -46,6 +68,10 @@ namespace BedrockBank
 
         public decimal Withdraw(decimal amount)
         {
+            if (amount < 0)
+            {
+                throw new ArgumentException("You have insufficient funds");
+            }
             Balance -= amount;
             // or Balance = Balance - amount;
             return Balance;
