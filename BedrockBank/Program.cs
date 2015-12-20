@@ -12,12 +12,10 @@ namespace BedrockBank
         {
             //Create an instance of an account == object
             var account = new Account();
-            //account.AccountNumber = 123;
             account.Name = "Larai's Checking";
-            //account.Balance = 1000000000
             account.Deposit(400);
             Console.WriteLine(
-                "Name: {0}, AccountNumber: {1}; Balance: {2}", 
+                "Name: {0}, AccountNumber: {1}; Balance: {2:c}", 
                 account.Name, account.AccountNumber, 
                 account.Balance
                 );
@@ -26,26 +24,30 @@ namespace BedrockBank
             var savingsaccount = new Account();  //same as - Account savingsaccount = new Account(); "var" figures it out
             savingsaccount.Name = "Larai's Savings";
             savingsaccount.Deposit(10);
+            savingsaccount.Withdraw(100);
 
             //Exception Handling
 
-            try
+           try
             {
                 savingsaccount.Withdraw(100);
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine("Oops, somethings went wrong {0}");
+                Console.WriteLine(
+                    "Oops, somethings went wrong {0}",
+                     ex.Message);
             }
             catch(Exception)
             {
                 Console.WriteLine("Yikes, somethings went wrong!");
             }
             Console.WriteLine(
-                "Name: {0}, AccountNumber: {1}; Balance: {2}",
-                account.Name, account.AccountNumber,
-                account.Balance
+                "Name: {0}, AccountNumber: {1}; Balance: {2:c}",
+                savingsaccount.Name, savingsaccount.AccountNumber,
+                savingsaccount.Balance
                 );
+
         }
     }
 }
