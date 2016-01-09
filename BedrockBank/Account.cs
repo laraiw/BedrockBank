@@ -17,6 +17,9 @@ namespace BedrockBank
     /// <summary>
     /// This class provides definition for an account for BedRock bank
     /// </summary>
+     
+    //*********ensure Account class is Publin so factory class can access it
+
     public class Account
     {
         #region Variables

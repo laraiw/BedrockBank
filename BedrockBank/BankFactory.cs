@@ -12,7 +12,7 @@ namespace BedrockBank
         //returns account, takes in 2 parameters;
         //creates accounts for us
 
-        public static Account CreateAccount(string name, int ssn, decimal amount)
+        public static Account CreateAccount(string name, int ssn)
         {
             var account = new Account();
             account.Name = name;
