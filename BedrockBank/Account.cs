@@ -56,8 +56,10 @@ namespace BedrockBank
 
         #region Constructors
 
-        //This is a default contructor; has no return type; same as class name
-        public Account()
+        //This is a default contructor; it takes no parameters; has no return type; same as class name
+        //OVERLOADING - we have 3 overloads for the constructor
+
+        public Account() /* first default constructor*/
         {
             AccountNumber = ++lastAccountNumber; //pre-increment
 
@@ -65,11 +67,19 @@ namespace BedrockBank
             // but will give you 0, so increment by 1 first
 
         }
-        public Account(string name)
+        public Account(string name) /* second default overloaded constructor*/
+            : this()
         {
             //here set the name
             Name = name;
             //or optionally => this.Name = name;
+        }
+
+        public Account(string name, decimal amount)
+            : this(name)
+        {
+           // Name = name; commented out due to : this(name)
+            Deposit(amount);
         }
 
         #endregion
